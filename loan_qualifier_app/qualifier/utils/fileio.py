@@ -6,7 +6,9 @@ This contains a helper function for loading and saving CSV files.
 """
 import csv
 
-from loan_qualifier_app.app import save_qualifying_loans
+from pathlib import Path
+
+#from app import save_qualifying_loans
 
 
 def load_csv(csvpath):
@@ -31,21 +33,22 @@ def load_csv(csvpath):
             data.append(row)
     return data
 
-def save_csv(csvpath):
+def save_csv(output_path, list_to_save):
 
-    with open('qualifying_loans.csv', "w") as csvfile:
-        data = list(save_qualifying_loans)
-        csvwriter = csv.writer("qualifying_loans.csv", delimiter=",")
+    header = list_to_save[0]
 
-    header = data(row[0])
+    output_path = Path("qualifying_loans.csv")
 
-    for row in data:
-            
+    with open(output_path, "w") as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=",")
+
         csvwriter.writerow(header)
 
-    for row in data:
-        data >= row[1]
-        csvwriter.writerows(data)
+        for row in list_to_save:
+            if row > list_to_save[0]:
+                csvwriter.writerow(row)
+        print(list_to_save)
     
-    
+
+
 
