@@ -24,6 +24,29 @@ from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
 
 
+def landing_screen_greeting():
+    """Pleasantly greet user to enhance UX
+    
+    Returns: Entry to the loan qualifier app.
+    """
+    greeting = questionary.select(
+        "Hello and welcome to Loan Qualifier. Would you like to search for loans you currently qualify for?", 
+        choices=["Yes", "No"]
+        ).ask()
+    if greeting == "Yes":
+        print("Congratulations on you first step toward approval!")
+    else:
+        sys.exit(f"Thank you for your time! Have a great day.")
+    
+    confirm_choice = questionary.select(
+        "Please select 'Yes' to continue.",
+        choices = ["Yes", "No"]
+        ).ask()
+    if confirm_choice == "Yes":
+        print("To generate list of qualifying loans, please enter the following information:")
+    else:
+        sys.exit("Thank you for your time! Have a great day.")
+
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
 
@@ -116,14 +139,16 @@ def save_qualifying_loans(qualifying_loans):
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # Ask user if they would like to save file
     output_path = questionary.select(
-        "Would you like to save a CSV file (.csv) of, and view the list of loans you have qualified for?", 
+        "Would you like to view, and save a CSV file (.csv), the list of loans you have qualified for?", 
         choices=["Yes", "No"]
         ).ask()
 
     # Ask where the user wishes to save file to allow ease of access.    
     if output_path == "Yes":
+        
         output_path = questionary.text("Please indicate the file path which you wish to save qualifying_loans.csv:").ask()
         output_path = Path('qualifying_loans.csv')
+        
         if not output_path.exists():
             sys.exit(f"Oops! Can't find this path: {output_path}")
         else:
@@ -131,10 +156,12 @@ def save_qualifying_loans(qualifying_loans):
             return output_path
     else:
         print("Your Qualifying Loans have not be saved.")
-
+    return output_path
 
 def run():
     """The main function for running the script."""
+    # Generate landing screen 
+    landing_screen_greeting()
 
     # Load the latest Bank data
     bank_data = load_bank_data()
