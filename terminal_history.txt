@@ -1,0 +1,50 @@
+  383  git commit -a -m "Part two is complete and all of the code is running smoothly. This commit has an extra file 'inexpensive_loans.csv' which will be removed on next commit" 
+  384  git status
+  385  git push
+  386  cd loan_qualifier_app/
+  387  python app.py
+  388  python app.py
+  389  python app.py
+  390  python app.py
+  391  python app.py
+  392  python app.py
+  393  python app.py
+  394  git add -A
+  395  git status
+  396  git commit -a -m "This is an update to the codebase that inclused CLI for IF and WHERE the user would like to save their Qualifying Loans"
+  397  git push
+  398  python app.py
+  399  git add -A
+  400  git commit -a -m "I moved the qualifying loans file to the folder "qualifying_loans_file""
+  401  git push
+  402  python app.py
+  403  python app.py
+  404  git add -A
+  405  git commit -a -m "I put the file back because it started outputting the rejection condition"
+  406  git push
+  407  python app.py
+  408  python app.py
+  409  python app.py
+  410  python app.py
+  411  python app.py
+  412  python app.py
+  413  python app.py
+  414  python app.py
+  415  git status
+  416  git commit -a -m "Finalized code for challenge 2(Greeting screen added for enhanced UX). A future iteration of this project should include multiple 'return to main menu' points for users who notice they have mistakenly input incorrect information on the previous step. Some updates to README are included. Next commit should be final version challenge version."
+  417  git push
+  418  git status
+  419  git add -A
+  420  git commit -a -m "README is completed and 99% of code is running properly. Need to figure out why the csv file is not saving to designated location or if it actually needs to create a file for the purpose of this challenge project. Even in this case, the code is not returning any error messages."
+  421  git push
+  422  git commit -a -m "Test to see if Prompts image is working now. It is not showing in the preview."
+  423  git push
+  424  git commit -a -m "Prompts image is preview properly. This is not the final version."
+  425  git push
+  426  git commit -a -m "Final Version1.0"
+  427  git push
+  428  git commit -a -m "Final Version1.1 - Update: fixed file path for Prompts image in backup README folder."
+  429  git push
+  430  cd ..
+  431  git status
+  432  history 50 > terminal_history.txt
